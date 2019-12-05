@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
+import  CssStyle from './App.module.css'; 
+import Person from './Person/Person'; 
 
 
 class App extends Component {
@@ -55,16 +55,10 @@ class App extends Component {
   
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color:'white',
-      font: 'inherit',
-      broder: '1px solid blue',
-      padding: '8px'      
-    }
+    
 
     let persons = null;
-
+    let btnClass='';
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -77,25 +71,25 @@ class App extends Component {
           
         </div>
       );
-      style.backgroundColor='red';
       
+      btnClass=CssStyle.red;
     }
     const classes=[];
       if(this.state.persons.length<=3)
       {
-        classes.push('red'); //classes=red
+        classes.push(CssStyle.red); //classes=red
       }
       if(this.state.persons.length<=2)
       {
-        classes.push('bold'); //classe=bold
+        classes.push(CssStyle.bold); //classe=bold
       }
 
     return (
       
-      <div className="App">
+      <div className={CssStyle.App}>
         <h1> This Is React learning Course</ h1>
         <h3 className={classes.join(' ')}>Aplication inside React</h3>
-        <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
+        <button className={btnClass} onClick={this.togglePersonHandler}>Toggle Persons</button>
 
         {persons}
 
