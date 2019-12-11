@@ -72,6 +72,7 @@ class App extends Component {
 
       <div className={CssStyle.App}>
         <Cockpit
+          appTitle={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           togglePersonHandler={this.togglePersonHandler}/>
